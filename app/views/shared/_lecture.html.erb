@@ -1,0 +1,15 @@
+<div class="assessment well" onclick="location.href='/lectures/' + <%= lecture.id %>">
+  <span class="lecture_name"><%= link_to lecture.title, lecture %></span>
+  <span class="provider"><%= lecture.provider %></span>
+  <span class="score <%= g(lecture.overall_score)[0] %> pull-right"><%= g(lecture.overall_score) %></span>
+  <blockquote class="content">
+    <% if lecture.assessments.empty? %>
+      <small> 강의평이 없습니다. </small>
+    <% else %>
+      <small> <%= c(lecture.assessments.last.content) %> </small>
+    <% end %>
+  </blockquote>
+  <br/> 수업만족도 <span class="sub-score <%= g(lecture.presentation_score)[0] %>"><%= g(lecture.presentation_score) %></span>
+  &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp; 과제만족도 <span class="sub-score <%= g(lecture.workload_score)[0] %>"><%= g(lecture.workload_score) %></span>
+  &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp; 학점만족도 <span class="sub-score <%= g(lecture.grading_score)[0] %>"><%= g(lecture.grading_score) %></span>
+</div>

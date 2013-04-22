@@ -1,0 +1,33 @@
+<%= render partial: 'shared/menu' %>
+<div class="container">
+  <div class="row">
+    <div class="span8">
+      <div class="main_container_left main_container">
+        <%= image_tag 'whats_new.png' %><br><br>
+        <% if @assessments.empty? %>
+          등록된 강의평이 없습니다.
+        <% else %>
+          <% @assessments.each do |assessment| %>
+            <%= render partial: 'shared/assessment', locals: { assessment: assessment } %>
+          <% end %>
+        <% end %>
+
+        <%= will_paginate @assessments, :params => {:term => @term} -%>
+      </div>
+    </div>
+    <div class="span4">
+      <div class="main_container_right main_container">
+          <%= render :partial => 'shared/standings' -%>
+          <br/><%= image_tag 'slogan.png' %>
+      </div>
+    </div>
+  </div>
+
+  <div style="clear:both;"></div>
+</div>
+
+<!--
+  <div id="content_right_wrapper">
+    <%= render :partial => 'shared/standings' -%>
+  </div>
+-->

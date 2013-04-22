@@ -1,0 +1,25 @@
+<div id="top_bar">
+  <div id="statistics">
+    <dl>
+      <dt>회원수</dt><dd><%= User.count %></dd>
+      <dt>강의평 수</dt><dd><%= Assessment.count %></dd>
+    </dl>
+  </div>
+  <div id="my_info">
+    <%= link_to "내 강의평 #{current_user.assessments.count}", '/assessments/my', class: 'num-my-assessments pull-right' %>
+  </div>
+  <div id="login_info">
+    <%= link_to '로그아웃', destroy_user_session_path, class: 'logout pull-right' %>
+  </div>
+</div>
+<div class="container">
+  <div class="clearfix"></div>
+  <a href="/"><div id="head_main_logo"></div></a>
+
+  <div class="search_box">
+    <%= form_tag search_lectures_path, method: 'get' do %>
+      <%= text_field_tag :query, @query, class: 'search-query input-xxlarge', placeholder: '강의명으로 검색하세요' %>
+      <%= submit_tag '검색', class: 'btn btn-warning' %>
+    <% end %>
+  </div>
+</div>

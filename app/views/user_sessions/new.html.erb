@@ -1,0 +1,38 @@
+<div class="container welcome-container">
+  <div class="row">
+    <div id="login-logo"></div>
+    <div id="yellow-separator"></div>
+  </div>
+  <div class="row">
+    <div class="span7">
+      <iframe class="promo-video" width="640" height="360" src="http://www.youtube.com/embed/iPuc1pNHiNw" frameborder="0" allowfullscreen></iframe>
+    </div>
+    <div class="span5">
+      <%= form_for(resource, :as => resource_name, :url => session_path(resource_name), :html => { :class => 'form-horizontal login-form' }) do |f| %>
+        <div class="login-form-container"></div>
+        <div class="control-group">
+          <%= f.label :username, '아이디', class: 'control-label' %>
+          <div class="controls">
+            <%= f.text_field :username, class: 'input input-xlarge' %>
+          </div>
+        </div>
+        <div class="control-group">
+          <%= f.label :password, '패스워드', class: 'control-label' %>
+          <div class="controls">
+            <%= f.password_field :password, class: 'input input-xlarge' %>
+          </div>
+        </div>
+        <div class="control-group">
+          <div class="controls">
+            <%= f.submit '로그인', class: 'btn btn-login' %>
+            <%= link_to '가입하러 가기', new_user_registration_path, class: 'btn btn-join' %>
+            <div>
+              <%= link_to '벙커랑 친구하러 가기', 'https://www.facebook.com/bunker.kpu', class: 'btn-facebook' %>
+            </div>
+          </div>
+        </div>
+      <% end %>
+      <a href="/"><div id="login_forgot"></div></a>
+    </div>
+  </div>
+</div>

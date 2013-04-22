@@ -1,0 +1,45 @@
+<div id="global-container">
+  <div id="login-logo"></div>
+  <div id="yellow-separator"></div>
+  <div id="validation-error-container">
+  <% unless @user.errors.empty? %>
+    <%= @user.errors.full_messages.join ' ' %>
+  <% end %>
+  </div>
+  <div class="signup-form-container">
+    <%= form_for @user, as: :user, url: registration_path(:user), html: { class: 'form-horizontal' } do |f| %>
+      <div class="control-group">
+      <%= f.label :username, '아이디', class: 'control-label' %>
+      <div class="controls">
+        <%= f.text_field :username, placeholder: '아이디' %>
+      </div>
+    </div>
+    <div class="control-group">
+      <%= f.label :password, '비밀번호', class: 'control-label' %>
+      <div class="controls">
+        <%= f.password_field :password, placeholder: 'password' %>
+      </div>
+    </div>
+    <div class="control-group">
+      <%= f.label :password_confirmation, '비밀번호 확인', class: 'control-label' %>
+      <div class="controls">
+        <%= f.password_field :password_confirmation, placeholder: 'password' %>
+      </div>
+    </div>
+    <div class="control-group">
+      <%= f.label :nickname, '닉네임', class: 'control-label' %>
+      <div class="controls">
+        <%= f.text_field :nickname, placeholder: '닉네임' %>
+      </div>
+    </div>
+    <div class="control-group">
+      <%= f.label :department, '소속학과', class: 'control-label' %>
+      <div class="controls">
+        <%= f.text_field :department, placeholder: '내거친생각과' %>
+      </div>
+    </div>
+    <%= f.submit '가입하기', class: 'btn-join' -%>
+  <% end %>
+  </div>
+</div>
+</div>

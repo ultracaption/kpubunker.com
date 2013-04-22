@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Bunker</title>
+  <%= stylesheet_link_tag 'application' %>
+  <%= javascript_include_tag 'application' %>
+  <%= stylesheet_link_tag '/jqui-theme/jquery-ui-1.9.1.custom.min.css' %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+<script type="text/javascript">
+$(function(){
+<% if notice || alert %>
+  humane.log('<%= notice || alert %>');
+<% end %>
+});
+</script>
+
+<%= yield %>
+
+<footer class="global_footer container">
+<div id="team_container">
+  문의사항 ishienl@naver.com
+</div>
+<div id="univ_logo_container">
+</div>
+</footer>
+</body>
+</html>

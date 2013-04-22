@@ -1,0 +1,7 @@
+<div class="assessment well">
+  <span class="score <%= g(assessment.overall_score)[0] %> pull-right"><%= g(assessment.overall_score) %></span>
+  수업만족도 <span class="sub-score <%= g(assessment.presentation_score)[0] %>"><%= g(assessment.presentation_score) %></span>
+  &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp; 과제만족도 <span class="sub-score <%= g(assessment.workload_score)[0] %>"><%= g(assessment.workload_score) %></span>
+  &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp; 학점만족도 <span class="sub-score <%= g(assessment.grading_score)[0] %>"><%= g(assessment.grading_score) %></span>
+  <blockquote class="content"><%= assessment.content %></blockquote>
+</div>

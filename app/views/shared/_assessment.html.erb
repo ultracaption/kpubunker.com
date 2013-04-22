@@ -1,0 +1,9 @@
+<div class="assessment well" onclick="location.href='/lectures/' + <%= assessment.lecture.id %>">
+  <span class="lecture_name"><%= link_to assessment.lecture.title, assessment.lecture %></span>
+  <span class="provider"><%= assessment.lecture.provider %></span>
+  <span class="score <%= g(assessment.overall_score)[0] %> pull-right"><%= g(assessment.overall_score) %></span>
+  <blockquote class="content"><%= assessment.content %></blockquote>
+  <br/> 수업만족도 <span class="sub-score <%= g(assessment.presentation_score)[0] %>"><%= g(assessment.presentation_score) %></span>
+  &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp; 과제만족도 <span class="sub-score <%= g(assessment.workload_score)[0] %>"><%= g(assessment.workload_score) %></span>
+  &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp; 학점만족도 <span class="sub-score <%= g(assessment.grading_score)[0] %>"><%= g(assessment.grading_score) %></span>
+</div>

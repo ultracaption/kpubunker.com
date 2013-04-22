@@ -1,0 +1,115 @@
+<table id="score-graphs-table">
+  <tbody>
+  <tr>
+    <th>A</th>
+    <td>
+      <div class="score-graph progress progress-info">
+        <div class="bar" style="width: <%= @presentation_score_count[0] / @assessments.count * 100 %>%"></div>
+      </div>
+    </td>
+    <th>A</th>
+    <td>
+       <div class="score-graph progress progress-info">
+        <div class="bar" style="width: <%= Float(@workload_score_count[0]) / @assessments.count * 100 %>%"></div>
+      </div>
+    </td>
+    <th>A</th>
+    <td>
+        <div class="score-graph progress progress-info">
+        <div class="bar" style="width: <%= Float(@grading_score_count[0]) / @assessments.count * 100 %>%"></div>
+      </div>
+   </td>
+  </tr>
+   <tr>
+    <th>B</th>
+    <td>
+      <div class="score-graph progress progress-info">
+        <div class="bar" style="width: <%= Float(@presentation_score_count[1]) / @assessments.count * 100 %>%"></div>
+      </div>
+    </td>
+    <th>B</th>
+    <td>
+       <div class="score-graph progress progress-info">
+        <div class="bar" style="width: <%= Float(@workload_score_count[1]) / @assessments.count * 100 %>%"></div>
+      </div>
+    </td>
+    <th>B</th>
+    <td>
+        <div class="score-graph progress progress-info">
+        <div class="bar" style="width: <%= Float(@grading_score_count[1]) / @assessments.count * 100 %>%"></div>
+      </div>
+   </td>
+  </tr>
+   <tr>
+    <th>C</th>
+    <td>
+      <div class="score-graph progress progress-info">
+        <div class="bar" style="width: <%= Float(@presentation_score_count[2]) / @assessments.count * 100 %>%"></div>
+      </div>
+    </td>
+    <th>C</th>
+    <td>
+       <div class="score-graph progress progress-info">
+        <div class="bar" style="width: <%= Float(@workload_score_count[2]) / @assessments.count * 100 %>%"></div>
+      </div>
+    </td>
+    <th>C</th>
+    <td>
+        <div class="score-graph progress progress-info">
+        <div class="bar" style="width: <%= Float(@grading_score_count[2]) / @assessments.count * 100 %>%"></div>
+      </div>
+   </td>
+  </tr>
+    <tr>
+    <th>D</th>
+    <td>
+      <div class="score-graph progress progress-info">
+        <div class="bar" style="width: <%= Float(@presentation_score_count[3]) / @assessments.count * 100 %>%"></div>
+      </div>
+    </td>
+    <th>D</th>
+    <td>
+       <div class="score-graph progress progress-info">
+        <div class="bar" style="width: <%= Float(@workload_score_count[3]) / @assessments.count * 100 %>%"></div>
+      </div>
+    </td>
+    <th>D</th>
+    <td>
+        <div class="score-graph progress progress-info">
+        <div class="bar" style="width: <%= Float(@grading_score_count[3]) / @assessments.count * 100 %>%"></div>
+      </div>
+   </td>
+  </tr>
+   <tr>
+    <th>F</th>
+    <td>
+      <div class="score-graph progress progress-info">
+        <div class="bar" style="width: <%= Float(@presentation_score_count[4]) / @assessments.count * 100 %>%"></div>
+      </div>
+    </td>
+    <th>F</th>
+    <td>
+       <div class="score-graph progress progress-info">
+        <div class="bar" style="width: <%= Float(@workload_score_count[4]) / @assessments.count * 100 %>%"></div>
+      </div>
+    </td>
+    <th>F</th>
+    <td>
+        <div class="score-graph progress progress-info">
+        <div class="bar" style="width: <%= Float(@grading_score_count[4]) / @assessments.count * 100 %>%"></div>
+      </div>
+   </td>
+  </tr>
+ <tr>
+  </tr>
+  <tr>
+    <th></th>
+    <td>수업만족도</td>
+    <th></th>
+    <td>과제만족도</td>
+    <th></th>
+    <td>학점만족도</td>
+  </tr>
+  </tbody>
+
+</table>

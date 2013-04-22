@@ -1,0 +1,75 @@
+<script>
+$(function() {
+  $(".input-slider").each(function(e) {
+    var _$this = $(this);
+    var _$input = _$this.find('input');
+    var _$label = $(this).prev();
+
+    $(this).slider({
+      step: 1, min: 1, max: 10, value: _$input.val(), animate: "fast",
+      slide: function(event, ui) {
+        _$input.val(ui.value);
+        _$label.html(ui.value);
+      }
+    });
+  });
+});
+</script>
+
+<%= render partial: 'shared/menu' %>
+<div class="container">
+  <div class="lecture">
+    <div class="section_title">강의정보</div>
+    <div class="section_content">
+      <span class="lecture_name"><%= @lecture.title %></span>
+      <span class="provider"><%= @lecture.provider %></span>
+      <br><br>
+
+      <% if current_user.finished_registration? %>
+        <% if @assessments.count < 1 %>
+          <div> 아직 강의평이 없습니다.</div>
+          <% else %>
+        <h3 class="pull-right">
+        전체평점
+        <span class="score <%= g(@lecture.overall_score)[0] %>"><%= g(@lecture.overall_score) %></span>
+      </h3>
+      <%= render partial: 'lectures/score_graphs', locals: { lecture: @lecture } %>
+    <% end %>
+    <% else %>
+        <div class="well">
+        <%= I18n.t 'assessments.blinded_content' %>
+      </div>
+    <% end %>
+      <div class="clearfix"></div>
+    </div>
+    <br/><br/>
+
+    <div class="section_title">평가하기</div>
+    <div class="section_content">
+      <%= form_for [@lecture, @assessment] do |f| %>
+
+        <%= label :presentation_score, '수업만족도' %>
+      <%= f.select :presentation_score, g_option, {}, class: 'span1' %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+      <%= label :workload_score, '과제만족도' %>
+      <%= f.select :workload_score, g_option, {}, class: 'span1' %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+      <%= label :grading_score, '학점만족도' %>
+      <%= f.select :grading_score, g_option, {}, class: 'span1' %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+      <h5>주관식 의견</h5>
+      <%= f.text_area :content, class: 'textarea-content', placeholder: '자유롭게 써 주세요' %>
+      <%= f.submit '작성 완료', class: 'btn btn-warning btn-large btn-submit pull-right' %>
+
+      <div class="clearfix"></div>
+    <% end %>
+    </div>
+
+    <div class="section_title">강의평들</div>
+    <div class="section_content">
+      <% @assessments.each do |assessment| %>
+        <%= render partial: 'shared/assessment_simple', locals: { assessment: assessment } %>
+      <% end -%>
+    </div>
+  </div>
+</div>
